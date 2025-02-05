@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 import model.Grade;
 import model.GradeFactory;
+import report.ReportHtmlView;
 import report.ReportPrinter;
+import report.ReportTableView;
 
 public class Main {
 
@@ -29,8 +31,12 @@ public class Main {
 			report.add(GradeFactory.CreateGrade(data[0], Integer.parseInt(data[1]), 
 					Integer.parseInt(data[2]), Integer.parseInt(data[3])));
 		}
-		report.print();
-		report.printHtml();
+//		report.print();
+//		report.printHtml();
+		var tv = new ReportTableView(report);
+		tv.print();
+		var html = new ReportHtmlView(report);
+		html.print();
 	}
 
 }
