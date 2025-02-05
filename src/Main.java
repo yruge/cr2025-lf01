@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import model.Grade;
 import model.GradeFactory;
+import report.ReportCSVView;
 import report.ReportHtmlView;
 import report.ReportPrinter;
 import report.ReportTableView;
@@ -37,6 +38,8 @@ public class Main {
 		tv.print();
 		var html = new ReportHtmlView(report);
 		html.print();
+		var csv = new ReportCSVView(report);
+		csv.print();
 	}
 
 }
