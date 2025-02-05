@@ -30,6 +30,7 @@ public class Main {
 					Integer.parseInt(data[2]), Integer.parseInt(data[3])));
 		}
 		report.print();
+		report.printHtml();
 	}
 
 }
