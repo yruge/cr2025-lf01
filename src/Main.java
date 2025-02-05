@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import model.Grade;
+import model.GradeFactory;
 
 public class Main {
 
@@ -20,7 +21,7 @@ public class Main {
 //			int total = (project * 5 + mid * 2 + fin * 3);
 //			total = total / 10 + (total%10 >=1?1:0);
 //			System.out.printf("%s\t%d\t%d\t%d\t= %d\n", data[0], project, mid, fin, total);
-			var grade = new Grade(data[0], Integer.parseInt(data[1]), 
+			var grade = GradeFactory.CreateGrade(data[0], Integer.parseInt(data[1]), 
 					Integer.parseInt(data[2]), Integer.parseInt(data[3]));
 			System.out.println(grade);
 		}
