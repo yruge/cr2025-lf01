@@ -34,6 +34,10 @@ public class Main {
 		}
 //		report.print();
 //		report.printHtml();
+		printReport(report);
+	}
+
+	private static void printReport(ReportPrinter report) {
 		var tv = new ReportTableView(report);
 		tv.print();
 		var html = new ReportHtmlView(report);
