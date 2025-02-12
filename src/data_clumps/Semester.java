@@ -4,14 +4,12 @@ import java.util.Date;
 
 public class Semester {
 	private String label;
-	private Date start;
-	private Date end;
+	private DateRange range;
 	
-	public Semester(String label, Date start, Date end) {
+	public Semester(String label, DateRange range) {
 		super();
 		this.label = label;
-		this.start = start;
-		this.end = end;
+		this.range = range;
 	}
 	
 	public String getLabel() {
@@ -19,10 +17,10 @@ public class Semester {
 	}
 	
 	public Date getStart() {
-		return start;
+		return range.getStart();
 	}
 	
 	public Date getEnd() {
-		return end;
+		return range.getEnd();
 	}
 }

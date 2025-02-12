@@ -4,14 +4,13 @@ import java.util.Date;
 
 public class Kelas {
 	private String course;
-	private Date start;
-	private Date end;
+	private DateRange range;
 	
 	public Date getStart() {
-		return start;
+		return range.getStart();
 	}
 	
 	public Date getEnd() {
-		return end;
+		return range.getEnd();
 	}
 }
