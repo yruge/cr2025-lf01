@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.regex.Pattern;
 
 public class Mahasiswa {
-	private String name;
+	private FullName name;
 	private int dayOfBirth;
 	private int monthOfBirth;
 	private int yearOfBirth;
@@ -12,11 +12,7 @@ public class Mahasiswa {
 	//reguler | global
 	private String type;
 	
-	public Mahasiswa(String name, String type, int dayOfBirth, int monthOfBirth, int yearOfBirth) {
-		if(!isValidName(name)) {
-			throw new IllegalArgumentException("name is not valid");
-		}
-		
+	public Mahasiswa(FullName name, String type, int dayOfBirth, int monthOfBirth, int yearOfBirth) {
 		type = type.toLowerCase();
 		if(!type.equals("reguler") && !type.equals("global")) {
 			throw new IllegalArgumentException("type is not valid");
@@ -33,12 +29,7 @@ public class Mahasiswa {
 		this.yearOfBirth = yearOfBirth;
 	}
 
-	private boolean isValidName(String name) {
-		String regex = "^([A-Z\\'][a-z\\']*((\\s)))*[A-Z\\'][a-z\\']*$";
-		Pattern pattern = Pattern.compile(regex);
-		return pattern.matcher(name).matches();
-	}
-	
+
 	private boolean isValidDate(int dayOfBirth, int monthOfBirth, int yearOfBirth) {
 		Calendar cal = Calendar.getInstance();
 		cal.setLenient(false);
@@ -56,6 +47,6 @@ public class Mahasiswa {
 	}
 	
 	public String getName() {
-		return name;
+		return name.getName();
 	}
 }

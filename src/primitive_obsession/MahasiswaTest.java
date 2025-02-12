@@ -9,7 +9,7 @@ class MahasiswaTest {
 	@Test
 	void testSuccess() {
 		try {
-			Mahasiswa m = new Mahasiswa("Amir Budianto", "reguler", 20, 11, 1999);	
+			Mahasiswa m = new Mahasiswa(new FullName("Amir Budianto"), "reguler", 20, 11, 1999);	
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
@@ -18,7 +18,7 @@ class MahasiswaTest {
 	@Test
 	void testErrorName() {
 		try {
-			Mahasiswa m = new Mahasiswa("amir budianto123", "reguler", 20, 11, 1999);	
+			Mahasiswa m = new Mahasiswa(new FullName("amir budianto123"), "reguler", 20, 11, 1999);	
 		} catch (Exception e) {
 			return;
 		}
@@ -28,7 +28,7 @@ class MahasiswaTest {
 	@Test
 	void testErrorDoB() {
 		try {
-			Mahasiswa m = new Mahasiswa("Amir Budianto", "reguler", 37, 11, 1999);	
+			Mahasiswa m = new Mahasiswa(new FullName("Amir Budianto"), "reguler", 37, 11, 1999);	
 		} catch (Exception e) {
 			return;
 		}
