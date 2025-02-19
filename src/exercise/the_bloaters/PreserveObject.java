@@ -2,28 +2,16 @@ package exercise.the_bloaters;
 
 public class PreserveObject {
 	
-
 	class Room {
-		private int lowest, highest;
+		private TempRange tempRange;
 		public Room(int lowest, int highest) {
-			this.lowest = lowest;
-			this.highest = highest;
+			tempRange = new TempRange(lowest, highest);
 		}
-		// TODO: replace low & high in this withinPlan with preserve whole object  
+		// Refactored: pass the whole object instead of extracting values
 		public boolean withinPlan(HeatingPlan plan) {
-			int low = getLowestTemp();
-			int high = getHighestTemp();
-			return plan.withinRange(low, high);
+			return plan.withinRange(tempRange);
 		}
 
-		private int getHighestTemp() {
-			return highest;
-		}
-
-		private int getLowestTemp() {
-			return lowest;
-		}
-		
 	}
 
 	class HeatingPlan {
@@ -31,8 +19,8 @@ public class PreserveObject {
 		public HeatingPlan(int from, int to) {
 			range = new TempRange(from, to);
 		}
-		public boolean withinRange(int low, int high) {
-			return (low >= range.getLow() && high <= range.getHigh());
+		public boolean withinRange(TempRange tempRange) {
+			return (tempRange.getLow() >= range.getLow() && tempRange.getHigh() <= range.getHigh());
 		}
 	}
 	
@@ -50,6 +38,7 @@ public class PreserveObject {
 			return high;
 		}
 	}
+
 	public static void main(String[] args) {
 		PreserveObject p = new PreserveObject();
 		p.test();
@@ -60,5 +49,4 @@ public class PreserveObject {
 		System.out.println("Within 25-34: " + r.withinPlan(new HeatingPlan(25,34)));
 		System.out.println("Within 10-40: " + r.withinPlan(new HeatingPlan(10,40)));
 	}
-
 }
